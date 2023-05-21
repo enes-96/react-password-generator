@@ -67,8 +67,8 @@ const PasswordGenerator = () => {
         <input
           className="block w-full mb-4 accent-emerald-500"
           type="range"
+          min={2}
           max={24}
-          min={0}
           onChange={(e) => setPasswordLength(e.target.value)}
         />
         <label className="flex items-center my-2 text-lg ">
