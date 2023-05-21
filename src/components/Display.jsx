@@ -45,6 +45,7 @@ const PasswordGenerator = () => {
   };
 
   const copyToClipboard = async () => {
+    if (passwordLength < 1) return;
     try {
       await navigator.clipboard.writeText(password);
       alert("copied");
@@ -52,14 +53,22 @@ const PasswordGenerator = () => {
   };
   return (
     <div className="">
-      <div className="bg-neutral-900 p-4 text-2xl font-mono my-4 flex justify-between items-center">
-        <p className="">{password}</p>
+      <div className="bg-neutral-900 p-6 text-2xl font-mono my-4 flex justify-between items-center">
+        <input
+          type="text"
+          value={password}
+          readOnly
+          placeholder="password"
+          name=""
+          id=""
+          className=" bg-transparent focus:outline-none"
+        />
         <HiOutlineDocumentDuplicate
           className="text-2xl text-emerald-500 cursor-pointer"
           onClick={copyToClipboard}
         />
       </div>
-      <section className="bg-neutral-900 bg- p-4">
+      <section className="bg-neutral-900 bg- p-6">
         <div className="flex justify-between my-2">
           <label className="block text-lg ">Character Length </label>
           <p className="text-2xl text-emerald-500 ">{passwordLength}</p>
